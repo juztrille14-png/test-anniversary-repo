@@ -1,0 +1,300 @@
+:root {
+  --bg-1: #0a0618;
+  --bg-2: #15102b;
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --accent: #b388ff;
+  --accent-soft: #d8c4ff;
+  --text-main: #ffffff;
+  --text-muted: #cfc9e8;
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 18px 40px rgba(3, 1, 18, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(179, 136, 255, 0.12), transparent 18%),
+    linear-gradient(to bottom, var(--bg-1), var(--bg-2), #120a2d);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 232, 204, 0.04), transparent 8%),
+    radial-gradient(circle at 80% 20%, rgba(179, 136, 255, 0.06), transparent 10%),
+    radial-gradient(circle at 50% 70%, rgba(216, 196, 255, 0.03), transparent 12%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent 1px),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.03), transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.03), transparent 1px);
+  background-size: 180px 180px, 240px 240px, 220px 220px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02), transparent 18%),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.04), transparent 1px),
+    radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.03), transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.03), transparent 1px);
+  background-size: auto, 180px 180px, 240px 240px, 220px 220px;
+}
+
+#hero,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.hero-content {
+  max-width: 740px;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 5vw, 5rem);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.hero-content p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 22px;
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent));
+  color: #120b2d;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(179, 136, 255, 0.32);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(179, 136, 255, 0.45);
+}
+
+.story-section {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 18px 60px;
+}
+
+.story-section::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(179, 136, 255, 0.9), rgba(216, 196, 255, 0.3), transparent);
+  transform: translateX(-50%);
+  box-shadow:
+    0 0 8px rgba(179, 136, 255, 0.22),
+    0 0 18px rgba(179, 136, 255, 0.08);
+}
+
+.story-card {
+  position: relative;
+  width: calc(50% - 40px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px;
+  color: var(--text-main);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+}
+
+.story-section:nth-child(odd) .story-card {
+  margin-right: auto;
+}
+
+.story-section:nth-child(even) .story-card {
+  margin-left: auto;
+}
+
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #fff7d9 0%, var(--accent-soft) 58%, var(--accent) 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 5px rgba(255, 232, 204, 0.06),
+    0 0 12px rgba(255, 232, 204, 0.18),
+    0 0 24px rgba(179, 136, 255, 0.32);
+}
+
+.story-section:nth-child(odd) .story-card::before {
+  right: -49px;
+}
+
+.story-section:nth-child(even) .story-card::before {
+  left: -49px;
+}
+
+.story-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.story-card p,
+.story-card li {
+  color: var(--text-muted);
+}
+
+.image-container {
+  margin: 0 0 18px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 24px rgba(3, 1, 18, 0.38);
+}
+
+.story-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--accent-soft);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.story-card a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#future .story-card {
+  background:
+    linear-gradient(180deg, rgba(21, 16, 43, 0.95), rgba(10, 6, 24, 0.95)),
+    radial-gradient(circle at top, rgba(179, 136, 255, 0.1), transparent 30%);
+}
+
+#future ul {
+  list-style: none;
+  margin-top: 16px;
+}
+
+#future li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#love-letter .story-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.04));
+}
+
+footer {
+  padding: 60px 18px 80px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.footer-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer-content p {
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .story-section::before {
+    left: 12px;
+    transform: none;
+  }
+
+  .story-card {
+    width: calc(100% - 38px);
+    margin-left: 38px;
+    padding: 22px;
+  }
+
+  .story-section:nth-child(odd) .story-card,
+  .story-section:nth-child(even) .story-card {
+    margin-right: 0;
+    margin-left: 38px;
+  }
+
+  .story-card::before {
+    left: -26px;
+    right: auto;
+    top: 24px;
+  }
+
+  .story-card h2 {
+    font-size: 1.7rem;
+  }
+
+  .image-container img {
+    height: 240px;
+  }
+
+  .footer-content h2 {
+    font-size: 1.7rem;
+  }
+}
