@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 1</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: #f7eefc;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(255, 236, 190, 0.08), transparent 10%),
+        radial-gradient(circle at 18% 20%, rgba(138, 84, 255, 0.14), transparent 7%),
+        radial-gradient(circle at 78% 30%, rgba(255, 138, 209, 0.08), transparent 6%),
+        linear-gradient(180deg, #0b0a1d 0%, #161231 48%, #24184a 100%);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.9) 1px, transparent 1px) 0 0 / 3px 3px,
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 1px, transparent 1px) 20px 20px / 5px 5px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, transparent 0%, rgba(5, 3, 18, 0.12) 58%, rgba(5, 3, 18, 0.65) 100%),
+        linear-gradient(to bottom, rgba(255, 228, 187, 0.03), rgba(255, 228, 187, 0.01));
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .chapter-title {
+      text-align: center;
+      font-size: 70px;
+      padding-top: 36px;
+      padding-bottom: 18px;
+    }
+
+    .chapter-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    
+
+    .chapter-card {
+      width: min(820px, 100%);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 225, 205, 0.04)),
+        radial-gradient(circle at 50% 10%, rgba(255, 248, 226, 0.18), transparent 18%),
+        linear-gradient(180deg, rgba(23, 14, 54, 0.86), rgba(14, 10, 30, 0.94));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 42px 36px 32px;
+      box-shadow:
+        inset 0 0 35px rgba(255, 227, 186, 0.06),
+        0 18px 50px rgba(8, 5, 22, 0.35);
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chapter-card::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 120px;
+      height: calc(100% - 32px);
+      background: linear-gradient(90deg, rgba(255, 243, 215, 0.14), rgba(255, 243, 215, 0.03));
+      border-radius: 16px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      transform: skewY(-2deg);
+      pointer-events: none;
+    }
+
+    .chapter-card::after {
+      content: "CHAPTER 1";
+      position: absolute;
+      top: 20px;
+      right: 26px;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      color: rgba(255, 242, 211, 0.68);
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .chapter-headline {
+      text-align: left;
+      color: white;
+      font-style: italic;
+      text-decoration: underline; 
+    }
+
+    .chapter-text {
+      position: relative;
+      z-index: 2;
+      font-size: 1.15rem;
+      line-height: 1.95;
+      color: #f8f0ff;
+      text-shadow: 0 1px 8px rgba(4, 2, 18, 0.24);
+      letter-spacing: 0.02em;
+      margin-bottom: 30px;
+    }
+
+    .chapter-button-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: linear-gradient(135deg, rgba(255, 239, 191, 0.18), rgba(255, 205, 249, 0.08));
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(92, 44, 173, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .chapter-button-home:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 36px rgba(92, 44, 173, 0.28);
+      background: linear-gradient(135deg, rgba(255, 249, 219, 0.25), rgba(255, 218, 250, 0.12));
+    }
+
+    .chapter-button-home::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
+    }
+
+        
+
+
+    .chapter-button-next {
+      text-align: right;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: linear-gradient(135deg, rgba(255, 239, 191, 0.18), rgba(255, 205, 249, 0.08));
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(92, 44, 173, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .chapter-button-next:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 36px rgba(92, 44, 173, 0.28);
+      background: linear-gradient(135deg, rgba(255, 249, 219, 0.25), rgba(255, 218, 250, 0.12));
+    }
+
+    .chapter-button-next::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
+    }
+
+/*
+===============
+button position
+=================
+*/
+
+    .chapter-buttons {
+      position: fixed;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 6px;
+      background: transparent;
+      z-index: 3000;
+      pointer-events: auto;
+      white-space: nowrap;
+    }
+
+  
+    .chapter-buttons.pos-bottom-right { right: 20px; bottom: 20px; }
+    .chapter-buttons.pos-bottom-left  { left: 20px;  bottom: 20px; }
+    .chapter-buttons.pos-top-right    { right: 20px; top: 20px; }
+    .chapter-buttons.pos-top-left     { left: 20px;  top: 20px; }
+    .chapter-buttons.pos-center      { left: 50%; transform: translateX(-50%); bottom: 20px; }
+
+
+  </style>
+</head>
+
+<body>
+  <h1 class="chapter-title" >
+       The First Encounter
+    </h1>
+  <main class="chapter-page">
+    <section class="chapter-card">
+      <h2 class="chapter-headline">
+        Purp
+      </h2>
+      <p class="chapter-text">
+        I want to start this with I love you, and I am very blessed that I met you.
+         I want to tell you that I love you and I will always love you. 
+         You are my soulmate, my best friend, and my everything. 
+         I am so grateful for every moment we have shared together, 
+         and I look forward to many more years of love and happiness with you.
+      </p>
+
+    </section>
+    <div class="chapter-buttons pos-bottom-left">
+    <a href="index.html" class="chapter-button-home">
+        Back
+    </a>
+</div>
+
+<div class="chapter-buttons pos-bottom-right">
+    <a href="your-weirdo.html" class="chapter-button-next">
+        Chapter 2
+    </a>
+</div>
+  </main>
+
+</body>
+</html>
