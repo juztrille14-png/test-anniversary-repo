@@ -3,20 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 3</title>
+  <title>Chapter 1 — The First Encounter</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    .chapter-title {
-      text-align: center;
-      font-size: 60px;
-      padding-top: 36px;
-      padding-bottom: 18px;
-    
     }
 
     body {
@@ -52,6 +44,13 @@
         linear-gradient(to bottom, rgba(255, 228, 187, 0.03), rgba(255, 228, 187, 0.01));
       mix-blend-mode: screen;
       pointer-events: none;
+    }
+
+    .chapter-title {
+      text-align: center;
+      font-size: 70px;
+      padding-top: 36px;
+      padding-bottom: 18px;
     }
 
     .chapter-page {
@@ -94,7 +93,7 @@
     }
 
     .chapter-card::after {
-      content: "CHAPTER 3";
+      content: "CHAPTER 1";
       position: absolute;
       top: 20px;
       right: 26px;
@@ -109,18 +108,7 @@
       text-align: left;
       color: white;
       font-style: italic;
-      text-decoration: underline; 
-    }
-
-    .chapter-text {
-      position: relative;
-      z-index: 2;
-      font-size: 1.15rem;
-      line-height: 1.95;
-      color: #f8f0ff;
-      text-shadow: 0 1px 8px rgba(4, 2, 18, 0.24);
-      letter-spacing: 0.02em;
-      margin-bottom: 30px;
+      text-decoration: underline;
     }
 
     .chapter-button-home {
@@ -159,11 +147,7 @@
       box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
     }
 
-        
-
-
     .chapter-button-next {
-      text-align: right;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -199,12 +183,6 @@
       box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
     }
 
-/*
-===============
-button position
-=================
-*/
-
     .chapter-buttons {
       position: fixed;
       display: flex;
@@ -217,17 +195,168 @@ button position
       white-space: nowrap;
     }
 
-  
     .chapter-buttons.pos-bottom-right { right: 20px; bottom: 20px; }
     .chapter-buttons.pos-bottom-left  { left: 20px;  bottom: 20px; }
     .chapter-buttons.pos-top-right    { right: 20px; top: 20px; }
     .chapter-buttons.pos-top-left     { left: 20px;  top: 20px; }
-    .chapter-buttons.pos-center      { left: 50%; transform: translateX(-50%); bottom: 20px; }
+    .chapter-buttons.pos-center       { left: 50%; transform: translateX(-50%); bottom: 20px; }
 
+    .chapter-subtitle {
+      text-align: center;
+      opacity: .8;
+      margin-bottom: 30px;
+    }
+
+    .letter {
+      font-size: 1.15rem;
+      line-height: 2;
+    }
+
+    .letter p {
+      margin: 22px 0;
+    }
+
+    .memory-divider {
+      text-align: center;
+      font-size: 28px;
+      opacity: .5;
+      margin: 45px 0;
+    }
+
+    .memory-image {
+      width: 100%;
+      border-radius: 18px;
+      margin: 25px 0;
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    blockquote {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.25rem;
+      margin: 30px auto;
+      color: #ffe9b0;
+    }
+
+    .ending {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff4c5;
+    }
+
+    /* ── Memory Log ── */
+    .memory-log {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 50px;
+      backdrop-filter: blur(10px);
+    }
+
+    .memory-title {
+      text-align: center;
+      letter-spacing: 4px;
+      font-size: .85rem;
+      color: #ffe7a6;
+      margin-bottom: 25px;
+    }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .memory-grid span {
+      display: block;
+      font-size: .8rem;
+      text-transform: uppercase;
+      opacity: .6;
+      margin-bottom: 8px;
+    }
+
+    .memory-grid p {
+      line-height: 1.7;
+    }
+
+    .memory-ending {
+      margin-top: 35px;
+      text-align: center;
+      font-style: italic;
+      color: #ffe7a6;
+    }
+
+    /* ── Lost Memory block ── */
+    .lost-memory {
+      text-align: center;
+      padding: 30px;
+      border-radius: 18px;
+      margin: 30px 0;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+    }
+
+    .lost-memory h3 {
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .camera {
+      width: 60px;
+      height: 40px;
+      margin: 0 auto 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .camera::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ── Autosave ── */
+    .autosave {
+      margin-top: 60px;
+      padding: 28px 30px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      font-size: .9rem;
+      line-height: 1.6;
+      color: #f0e8ff;
+    }
+
+    .autosave hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      margin: 16px 0;
+    }
+
+    .autosave-title {
+      text-align: center;
+      letter-spacing: 4px;
+      font-size: .85rem;
+      color: #ffe7a6;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 
 <body>
+
   <h1 class="chapter-title" >
     <span style="font-size: 30px;">More than </span> 
      <span style="font-size: 70px;font-style: italic;font-weight:bold;"> friends</span>, 
@@ -235,18 +364,341 @@ button position
      <span style="font-size: 50px;font-style: italic;letter-spacing: 5px;color: #880808">lover</span>
     </h1>
 
-  <main class="chapter-page" >  
-    <section class="chapter-card"> 
-      <h1 class="chapter-headline">
-        Instagram
-      </h1>
-      <p class="chapter-text"> 
-        We've gotten a lot closer now. I am not that shya round you anymore and I don't sayt soryy fort everthing.
-        You're very fun to talk with and I feel like time is moving very fast yet so slow at the same time whenever I am with you. 
+  <main class="chapter-page">
+    <section class="chapter-card">
+
+      <!-- MEMORY LOG -->
+      <div class="memory-log">
+        <div class="memory-title">MEMORY LOG #003</div>
+        <div class="memory-grid">
+          <div>
+            <span>Period</span>
+            <p>The "We're definitely just friends" era.</p>
+          </div>
+          <div>
+            <span>Location</span>
+            <p>Instagram Calls</p>
+          </div>
+          <div>
+            <span>Activities</span>
+            <p>
+              ✓ 6-hour calls<br>
+              ✓ Movie nights<br>
+              ✓ Flirting (apparently)<br>
+              ✓ Planning our future... as "friends"
+            </p>
+          </div>
+          <div>
+            <span>Status</span>
+            <p>More than friends.<br>Less than lovers.</p>
+          </div>
+        </div>
+        <p class="memory-ending">
+          We never confessed.
+          <br>
+          We simply forgot that friends aren't supposed to act like this.
+        </p>  
+
         
+
+      </div>
+
+      
+
+      <!-- HEADLINE -->
+      <h2 class="chapter-headline">JUST FRIENDS</h2>
+
+      <p class="chapter-subtitle">
+        <em>Sure. Totally. Absolutely.</em>
       </p>
 
+      <img
+        src="pictures/chapter-3.png"
+        alt="Instagram ss"
+        class="memory-image">
+
+      <!-- LETTER -->
+      <div class="letter">
+
+        <p>Dear Sweetie,</p>
+
+        <p>This chapter honestly makes me laugh every single time I think about it.</p>
+
+        <p>Because...</p>
+
+        <p>We were acting like a couple.</p>
+
+        <p>While insisting we were just friends.</p>
+
+        <p>HAHAHAHAHAHAHAHAHAHA.</p>
+
+        <p>Like bro...</p>
+
+        <p>Who said that was legal?</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>We laughed together like there was no tomorrow.</p>
+
+        <p>We talked almost every single day.</p>
+
+        <p>Not for an hour.</p>
+
+        <p>Not for two.</p>
+
+        <p>Sometimes...</p>
+
+        <p>Six hours.</p>
+
+        <p>Seven hours.</p>
+
+        <p>Until 5 in the morning for me.</p>
+
+        <p>Your brother literally had to tell me to go to sleep.</p>
+
+        <p>HAHAHAHAHAHA.</p>
+
+        <p>Sorry, Kuba.</p>
+
+        <p>I was busy talking to your sister.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Speaking of your family...</p>
+
+        <p>I somehow became close to your brother.</p>
+
+        <p>And your grandma.</p>
+
+        <p>BWHAHAHAHAHAHA.</p>
+
+        <p>Your grandma likes me.</p>
+
+        <p>She has the most beautiful garden too.</p>
+
+        <p>I still remember seeing it and thinking how peaceful it looked.</p>
+
+        <p>Extra points for me.</p>
+
+        <p>😎</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>The funniest part?</p>
+
+        <p>We were still...</p>
+
+        <p>"Just friends."</p>
+
+        <p>No label.</p>
+
+        <p>Nothing official.</p>
+
+        <p>Just two completely normal friends...</p>
+
+        <p>Talking for six hours a day.</p>
+
+        <p>Watching movies together.</p>
+
+        <p>Flirting.</p>
+
+        <p>Teasing each other.</p>
+
+        <p>Making each other laugh.</p>
+
+        <p>Planning our future.</p>
+
+        <p>...</p>
+
+        <p>Yeah.</p>
+
+        <p>Sure.</p>
+
+        <p>Friends.</p>
+
+        <p>HAHAHAHAHAHAHAHA.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>I honestly didn't want to confess.</p>
+
+        <p>I was happy with what we had.</p>
+
+        <p>Maybe I couldn't tell everyone that you were mine...</p>
+
+        <p>But...</p>
+
+        <p>In my heart...</p>
+
+        <p>You already were.</p>
+
+        <p>I'm sorry for being selfish.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>I remember telling my boys about us almost every night.</p>
+
+        <p>Bro...</p>
+
+        <p>I was actually tweaking.</p>
+
+        <p>I'd tell them everything.</p>
+
+        <p>How funny you were.</p>
+
+        <p>How sweet you were.</p>
+
+        <p>How easy it was to talk to you.</p>
+
+        <p>And...</p>
+
+        <p>Yes.</p>
+
+        <p>You were still unbelievably pretty.</p>
+
+        <p>That sentence is absolutely necessary for the plot.</p>
+
+        <p>Totally.</p>
+
+        <p>Not because I'm completely in love with you or anything.</p>
+
+        <p>HAHAHAHAHAHAHAHA.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>There was even one time...</p>
+
+        <p>You were talking for what felt like an hour.</p>
+
+        <p>Maybe even two.</p>
+
+        <p>And...</p>
+
+        <p>I'm so sorry, sweetie.</p>
+
+        <p>I wasn't listening anymore.</p>
+
+        <p>I was just...</p>
+
+        <p>Looking at you.</p>
+
+        <p>Admiring you.</p>
+
+        <p>Thinking,</p>
+
+        <blockquote>"Damn... She's so beautiful."</blockquote>
+
+        <p>HAHAHAHAHAHAHAHA.</p>
+
+        <p>I'm sorry.</p>
+
+        <p>I love you very much.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Then things became even funnier.</p>
+
+        <p>Normal friends don't usually talk about living together someday.</p>
+
+        <p>Right?</p>
+
+        <p>Well...</p>
+
+        <p>We did.</p>
+
+        <p>We talked about traveling the world.</p>
+
+        <p>Living in Switzerland.</p>
+
+        <p>Meeting each other.</p>
+
+        <p>Building a future together.</p>
+
+        <p>...</p>
+
+        <p>As friends.</p>
+
+        <p>HAHAHAHAHAHAHAHAHAHA.</p>
+
+        <p>Sure.</p>
+
+        <p>Totally just friends.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Then your brother said something that still makes me laugh.</p>
+
+        <blockquote>"You're addicted to each other."</blockquote>
+
+        <p>Honestly...</p>
+
+        <p>He wasn't wrong.</p>
+
+        <p>Even my mom started asking questions.</p>
+
+        <p>She kept hearing me laughing in my room until five in the morning.</p>
+
+        <p>One day she finally asked,</p>
+
+        <blockquote>"Do you have a girlfriend?"</blockquote>
+
+        <p>HAHAHAHAHAHAHAHAHAHA.</p>
+
+        <p>Sorry, Mom.</p>
+
+        <p>I honestly didn't know how to answer that question either.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Looking back now...</p>
+
+        <p>It's actually hilarious.</p>
+
+        <p>A Polish girl.</p>
+
+        <p>A Filipino guy.</p>
+
+        <p>Around ten thousand kilometers apart.</p>
+
+        <p>Planning to travel the world together.</p>
+
+        <p>Dreaming about living in Switzerland.</p>
+
+        <p>Making promises.</p>
+
+        <p>Spending almost every day together.</p>
+
+        <p>Without even realizing...</p>
+
+        <p>We had already become something much bigger than friendship.</p>
+
+        <h3 class="ending">
+          More than friends.
+          <br>
+          Less than lovers.
+          <br><br>
+          At least...
+          That's what we kept telling ourselves.
+          ❤️
+        </h3>
+
+      </div>
+
+      <!-- AUTOSAVE -->
+      <div class="autosave">
+        <p class="autosave-title">AUTOSAVE COMPLETE</p>
+        <hr>
+        <p><strong>Chapter</strong><br>Between Friendship and Love</p>
+        <br>
+        <p><strong>Achievement Unlocked</strong><br>Accidentally started acting like a couple.</p>
+        <br>
+        <p><strong>Progress</strong><br>3 / 5</p>
+        <br>
+        <p><strong>Next Chapter</strong><br>The First "I Love You"</p>
+      </div>
+
     </section>
+  </main>
 
     <div class="chapter-buttons pos-top-left">
     <a href="index.html" class="chapter-button-home">
@@ -266,6 +718,5 @@ button position
     </a>
 </div>
 
-  </main>  
 </body>
 </html>

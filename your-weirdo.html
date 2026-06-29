@@ -3,20 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 2</title>
+  <title>Chapter 1 — The First Encounter</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    .chapter-title {
-      text-align: center;
-      font-size: 60px;
-      padding-top: 36px;
-      padding-bottom: 18px;
-    
     }
 
     body {
@@ -52,6 +44,13 @@
         linear-gradient(to bottom, rgba(255, 228, 187, 0.03), rgba(255, 228, 187, 0.01));
       mix-blend-mode: screen;
       pointer-events: none;
+    }
+
+    .chapter-title {
+      text-align: center;
+      font-size: 70px;
+      padding-top: 36px;
+      padding-bottom: 18px;
     }
 
     .chapter-page {
@@ -94,7 +93,7 @@
     }
 
     .chapter-card::after {
-      content: "CHAPTER 2";
+      content: "CHAPTER 1";
       position: absolute;
       top: 20px;
       right: 26px;
@@ -109,18 +108,7 @@
       text-align: left;
       color: white;
       font-style: italic;
-      text-decoration: underline; 
-    }
-
-    .chapter-text {
-      position: relative;
-      z-index: 2;
-      font-size: 1.15rem;
-      line-height: 1.95;
-      color: #f8f0ff;
-      text-shadow: 0 1px 8px rgba(4, 2, 18, 0.24);
-      letter-spacing: 0.02em;
-      margin-bottom: 30px;
+      text-decoration: underline;
     }
 
     .chapter-button-home {
@@ -159,11 +147,7 @@
       box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
     }
 
-        
-
-
     .chapter-button-next {
-      text-align: right;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -199,12 +183,6 @@
       box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
     }
 
-/*
-===============
-button position
-=================
-*/
-
     .chapter-buttons {
       position: fixed;
       display: flex;
@@ -217,52 +195,430 @@ button position
       white-space: nowrap;
     }
 
-  
     .chapter-buttons.pos-bottom-right { right: 20px; bottom: 20px; }
     .chapter-buttons.pos-bottom-left  { left: 20px;  bottom: 20px; }
     .chapter-buttons.pos-top-right    { right: 20px; top: 20px; }
     .chapter-buttons.pos-top-left     { left: 20px;  top: 20px; }
-    .chapter-buttons.pos-center      { left: 50%; transform: translateX(-50%); bottom: 20px; }
+    .chapter-buttons.pos-center       { left: 50%; transform: translateX(-50%); bottom: 20px; }
 
+    .chapter-subtitle {
+      text-align: center;
+      opacity: .8;
+      margin-bottom: 30px;
+    }
+
+    .letter {
+      font-size: 1.15rem;
+      line-height: 2;
+    }
+
+    .letter p {
+      margin: 22px 0;
+    }
+
+    .memory-divider {
+      text-align: center;
+      font-size: 28px;
+      opacity: .5;
+      margin: 45px 0;
+    }
+
+    .memory-image {
+      width: 100%;
+      border-radius: 18px;
+      margin: 25px 0;
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    blockquote {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.25rem;
+      margin: 30px auto;
+      color: #ffe9b0;
+    }
+
+    .ending {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff4c5;
+    }
+
+    /* ── Memory Log ── */
+    .memory-log {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 50px;
+      backdrop-filter: blur(10px);
+    }
+
+    .memory-title {
+      text-align: center;
+      letter-spacing: 4px;
+      font-size: .85rem;
+      color: #ffe7a6;
+      margin-bottom: 25px;
+    }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .memory-grid span {
+      display: block;
+      font-size: .8rem;
+      text-transform: uppercase;
+      opacity: .6;
+      margin-bottom: 8px;
+    }
+
+    .memory-grid p {
+      line-height: 1.7;
+    }
+
+    .memory-ending {
+      margin-top: 35px;
+      text-align: center;
+      font-style: italic;
+      color: #ffe7a6;
+    }
+
+    /* ── Lost Memory block ── */
+    .lost-memory {
+      text-align: center;
+      padding: 30px;
+      border-radius: 18px;
+      margin: 30px 0;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+    }
+
+    .lost-memory h3 {
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .camera {
+      width: 60px;
+      height: 40px;
+      margin: 0 auto 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .camera::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ── Autosave ── */
+    .autosave {
+      margin-top: 60px;
+      padding: 28px 30px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      font-size: .9rem;
+      line-height: 1.6;
+      color: #f0e8ff;
+    }
+
+    .autosave hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      margin: 16px 0;
+    }
+
+    .autosave-title {
+      text-align: center;
+      letter-spacing: 4px;
+      font-size: .85rem;
+      color: #ffe7a6;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 
 <body>
-  <h1 class="chapter-title" >
-    <span style="font-size: 70px;"> The First Lie </span>                            
-    </h1>
 
-  <main class="chapter-page" >  
-    <section class="chapter-card"> 
-      <h1 class="chapter-headline">
-        Instagram
-      </h1>
-      <p class="chapter-text"> 
-        We've gotten a lot closer now. I am not that shya round you anymore and I don't sayt soryy fort everthing.
-        You're very fun to talk with and I feel like time is moving very fast yet so slow at the same time whenever I am with you. 
-        
+  <h1 class="chapter-title">The First Lie</h1>
+
+  <main class="chapter-page">
+    <section class="chapter-card">
+
+      <!-- MEMORY LOG -->
+      <div class="memory-log">
+        <div class="memory-title">MEMORY LOG #002</div>
+        <div class="memory-grid">
+          <div>
+            <span>Date</span>
+            <p>April 2025</p>
+          </div>
+          <div>
+            <span>Event</span>
+            <p>The First Lie</p>
+          </div>
+          <div>
+            <span>Intent</span>
+            <p>
+              ✓ Be friends<br>
+              ✓ Talk casually<br>
+              ✗ Fall in love
+            </p>
+          </div>
+          <div>
+            <span>Status</span>
+            <p>Feelings slowly developing.</p>
+          </div>
+        </div>
+        <p class="memory-ending">
+          I only wanted friendship.
+          <br>
+          But something deeper had already started.
+        </p>
+
+       
+
+      </div>
+
+      
+
+      <!-- HEADLINE -->
+      <h2 class="chapter-headline">THE FIRST LIE</h2>
+
+      <p class="chapter-subtitle">
+        <em>It started as something simple...</em>
       </p>
 
-    </section>
+       <img
+        src="pictures/wanna-be-friend.png"
+        alt="Instagram ss"
+        class="memory-image">
 
-<div class="chapter-buttons pos-top-left">
+      <!-- LETTER -->
+      <div class="letter">
+
+        <p>Dear Sweetie,</p>
+
+        <p>Do you remember this screenshot?</p>
+
+        <blockquote>"Yo, can we be friends?"</blockquote>
+
+        <p>Looking back now...</p>
+
+        <p>That was probably the biggest lie I've ever told you.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>The funny thing is...</p>
+
+        <p>It wasn't even intentional.</p>
+
+        <p>When I asked if we could be friends, I genuinely meant it.</p>
+
+        <p>
+          At that time, that's really all I wanted.
+          I wasn't looking for a girlfriend.
+          I wasn't trying to flirt.
+          I wasn't planning some master strategy.
+          I just thought you were a really nice person,
+          and honestly, your energy wasn't draining. 😭
+        </p>
+
+        <p>
+          You know those conversations where it feels like you're talking to a brick wall?
+          Yeah... ours wasn't like that at all.
+          Talking to you just felt... easy.
+        </p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>And yes...</p>
+
+        <p>Before you say anything...</p>
+
+        <p>I already thought you were pretty.</p>
+
+        <p>Like... really pretty.</p>
+
+        <p>I'm not blind.</p>
+
+        <p>But being attracted to someone and being in love with them are two completely different things.</p>
+
+        <p>So no.</p>
+
+        <p>I wasn't simping.</p>
+
+        <blockquote>"Damn... she's pretty."</blockquote>
+
+        <p>That's it.</p>
+
+        <p>Nothing more.</p>
+
+        <p>Or at least...</p>
+
+        <p>That's what I kept telling myself.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>The more we talked, the more I realized something was changing.</p>
+
+        <p>You became the person I looked forward to talking to every day.</p>
+
+        <p>You somehow made practicing English feel effortless.</p>
+
+        <p>You were funny.</p>
+
+        <p>You were energetic.</p>
+
+        <p>You were easy to talk to.</p>
+
+        <p>You somehow turned the most random conversations into the best part of my day.</p>
+
+        <p>And little by little...</p>
+
+        <p>Without me even noticing...</p>
+
+        <p>You became prettier.</p>
+
+        <p>Not because you changed.</p>
+
+        <p>
+          But because every time I got to know you a little more,
+          I found another reason to admire you.
+        </p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>At some point I remember thinking,</p>
+
+        <blockquote>"Bro... what the hell is happening?"</blockquote>
+
+        <blockquote>"Am I actually starting to like her?"</blockquote>
+
+        <p>HAHAHAHAHA.</p>
+
+        <p>I tried pretending nothing was happening.</p>
+
+        <p>Absolutely nothing.</p>
+
+        <p>Nope.</p>
+
+        <p>Still just friends.</p>
+
+        <p>Totally.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Because there was no way I was going to confess.</p>
+
+        <p>You already know me.</p>
+
+        <p>I'm scared of pretty girls. 😭</p>
+
+        <p>Confessing?</p>
+
+        <p>Absolutely not.</p>
+
+        <p>I'd rather wrestle a bear.</p>
+
+        <p>Okay... maybe not a bear.</p>
+
+        <p>A goose.</p>
+
+        <p>Those things are terrifying.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Besides, I kept thinking,</p>
+
+        <blockquote>"Bro... don't ruin this."</blockquote>
+
+        <blockquote>"Just be happy she's in your life."</blockquote>
+
+        <blockquote>"Don't be stupid."</blockquote>
+
+        <p>So I stayed quiet.</p>
+
+        <p>I kept calling you my friend...</p>
+
+        <p>Even though my heart was slowly starting to disagree.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Which means...</p>
+
+        <p>That message...</p>
+
+        <blockquote>"Yo, can we be friends?"</blockquote>
+
+        <p>And your reply...</p>
+
+        <blockquote>"Sure! Want to be one of my weirdos?"</blockquote>
+
+        <p>Turned out to be the most beautiful lie I've ever told.</p>
+
+        <p>Because I never stayed just your friend.</p>
+
+        <h3 class="ending">I fell in love with you. ❤️</h3>
+
+        <div class="memory-divider">✦</div>
+
+        <p>Still...</p>
+
+        <p>I hope you'll find it in your heart to forgive me.</p>
+
+        <p>Because I had absolutely no idea that one little lie...</p>
+
+        <p class="ending">would eventually become the greatest truth of my life</p>
+
+      </div>
+
+      <!-- AUTOSAVE -->
+      <div class="autosave">
+        <p class="autosave-title">AUTOSAVE COMPLETE</p>
+        <hr>
+        <p><strong>Chapter</strong><br>The First Lie</p>
+        <br>
+        <p><strong>Achievement Unlocked</strong><br>Feelings Detected.</p>
+        <br>
+        <p><strong>Progress</strong><br>2 / 5</p>
+        <br>
+        <p><strong>Next Chapter</strong><br>Between Friendship and Love</p>
+      </div>
+
+    </section>
+  </main>
+
+   <div class="chapter-buttons pos-top-left">
     <a href="index.html" class="chapter-button-home">
         Home
     </a>
 </div>
 
-     <div class="chapter-buttons pos-bottom-left">
-    <a href="first-spark.html" class="chapter-button-home">
-        Back
-    </a>
-</div>
+  <div class="chapter-buttons pos-bottom-left">
+    <a href="first-spark.html" class="chapter-button-home">Back</a>
+  </div>
 
-<div class="chapter-buttons pos-bottom-right">
-    <a href="friends-lover.html" class="chapter-button-next">
-        Chapter 3
-    </a>
-</div>
+  <div class="chapter-buttons pos-bottom-right">
+    <a href="friends-lover.html" class="chapter-button-next">Chapter 3</a>
+  </div>
 
-  </main>  
 </body>
 </html>

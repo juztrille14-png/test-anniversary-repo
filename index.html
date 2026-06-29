@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,8 +68,8 @@
 
         <p>
           Hi sweetie, do you remember the first time we met?
-          It was purely coincidence. I wasn't looking for someone to love that time. I only want a minecraft buddy.
-          
+    Sometimes I still think about how funny it was. Out of all the people in the world, we met because I was looking for a Minecraft buddy.
+I had no idea that one simple message would become...
         </p>
 
         <a href="first-spark.html" class="chapter-link"> --> Our First Encounter <--</a>
@@ -101,7 +100,10 @@
 
         <p>
 
-          memory dsection
+          There is something I've never truly admitted to you.
+          It wasn't a big lie...
+          but it has stayed with me ever since.
+          Maybe it's finally time I told you about...
 
         </p>
 
@@ -134,11 +136,15 @@
 
         <p>
 
-          memory sectiopn
+          We had unofficial "dates". We laughed together.
+          We stayed up late talking ( VERY MUCH!)
+          We cared about each other more than either of us wanted to admit. 
+          I think that it's safe to assume that we are...
+
 
         </p>
 
-        <a href="friends-lover.html" class="chapter-link">More than Friends, less than Lover</a>
+        <a href="friends-lover.html" class="chapter-link">More than Friend, less than Lover</a>
 
       </div>
 
@@ -166,7 +172,10 @@
 
         <p>
 
-          memoryy sectionnn
+        I can be unbelievably dense sometimes. 
+        I thought my feelings were obvious.
+         You thought I didn't feel the same.
+        Little did I know, all you needed was to hear was...
 
         </p>
 
@@ -191,18 +200,19 @@
         <div class="image-container">
 
           <img
-            src="pictures/5.jpg"
+            src="pictures/2.jpg"
             alt="Today">
 
         </div>
 
         <p>
 
-          Happy Anniversary ❤️
+          This wasn't the end of our story. It wasn't even the middle. It was only the beginning.
+         
 
         </p>
 
-        <a href="CHAPTER-5.html" class="chapter-link">My World</a>
+        <a href="CHAPTER-5.html" class="chapter-link">Genesis</a>
 
       </div>
 
@@ -247,32 +257,11 @@
 
     <!-- GALLERY -->
 
-    <section id="gallery" class="story-section gallery-section">
-      <div class="gallery-item">
-        <img src="pictures/purp-logo.png" alt="Memory 1">
-      </div>
-      <div class="gallery-item">
-        <img src="pictures/wanna-be-friend.png" alt="Memory 2">
-      </div>
-      <div class="gallery-item">
-        <img src="pictures/chapter-3.png" alt="Memory 3">
-      </div>
-      <div class="gallery-item">
-        <img src="pictures/chapter-4.png" alt="Memory 4">
-      </div>
-      <div class="gallery-item">
-        <img src="pictures/5.jpg" alt="Memory 5">
-      </div>
-    </section>
-
 
   </main>
 
 
-  <!-- FOOTER -->
-
-
-  <footer>
+<footer>
 
     <div class="footer-content">
 
@@ -292,20 +281,197 @@
         Juzie 
       </p>
 
-         <div class="audio-player">
-          <audio controls loop>
+       <div class="audio-player">
+          <label class="audio-player-label" for="gallery-audio">IF - Bread</label>
+          <audio id="gallery-audio" controls loop="auto">
             <source src="Bread - If (lyrics).mp3" type="audio/mpeg">
             Your browser doesn't support the audio element.
           </audio>
         </div>
 
-
-
+     
     </div>
 
   </footer>
 
+
+
+  <section id="gallery" class="story-section gallery-section">
+    <div class="gallery-shell">
+      <div class="gallery-header">
+        <h2>Our Little Gallery</h2>
+        <p>Some of our favorite moments, videos, and little memories for you to enjoy.</p>
+
+        
+
+        
+      </div>
+
+      <div class="gallery-grid"></div>
+        
+  <div class="gallery-modal" aria-hidden="true">
+    <div class="gallery-modal-content"></div>
+    <button class="gallery-close-btn" type="button" aria-label="Close preview">×</button>
+  </div>
+
+  <script>
+    const galleryModal = document.querySelector('.gallery-modal');
+    const galleryModalContent = document.querySelector('.gallery-modal-content');
+    const galleryCloseBtn = document.querySelector('.gallery-close-btn');
+
+    function closeGalleryModal() {
+      galleryModal.classList.remove('active');
+      galleryModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      galleryModalContent.innerHTML = '';
+    }
+
+    function openGalleryModal(item) {
+      const type = item.getAttribute('data-type');
+      const src = item.getAttribute('data-src');
+
+      galleryModalContent.innerHTML = '';
+
+      if (type === 'video') {
+        const video = document.createElement('video');
+        video.src = src;
+        video.controls = true;
+        video.autoplay = true;
+        video.preload = 'auto';
+        video.playsInline = true;
+        galleryModalContent.appendChild(video);
+      } else {
+        const image = document.createElement('img');
+        image.src = src;
+        image.alt = item.querySelector('img')?.alt || 'Memory';
+        galleryModalContent.appendChild(image);
+      }
+
+      galleryModal.classList.add('active');
+      galleryModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    const galleryData = [
+      { type: 'image', src: 'pictures/1.jpg', alt: 'Memory 1' },
+      { type: 'image', src: 'pictures/2.jpg', alt: 'Memory 2' },
+      { type: 'image', src: 'pictures/3.jpg', alt: 'Memory 3' },
+      { type: 'image', src: 'pictures/4.jpg', alt: 'Memory 4' },
+      { type: 'image', src: 'pictures/5.jpg', alt: 'Memory 5' },
+      { type: 'image', src: 'pictures/6.png', alt: 'Memory 6' },
+      { type: 'image', src: 'pictures/7.png', alt: 'Memory 7' },
+      { type: 'image', src: 'pictures/8.png', alt: 'Memory 8' },
+      { type: 'image', src: 'pictures/9.jpg', alt: 'Memory 9' },
+      { type: 'image', src: 'pictures/10.png', alt: 'Memory 10' },
+      { type: 'image', src: 'pictures/11.jpg', alt: 'Memory 11' },
+      { type: 'image', src: 'pictures/12.jpg', alt: 'Memory 12' },
+      { type: 'image', src: 'pictures/13.jpg', alt: 'Memory 13' },
+      { type: 'image', src: 'pictures/14.jpg', alt: 'Memory 14' },
+      { type: 'image', src: 'pictures/15.jpg', alt: 'Memory 15' },
+      { type: 'image', src: 'pictures/0099b224-eed6-4eb5-b369-26a9af6c3445.jpg', alt: 'Memory 16' },
+      { type: 'image', src: 'pictures/0405ced4-c15c-49af-9f9e-9dbc7bb1bc3f.jpg', alt: 'Memory 17' },
+      { type: 'image', src: 'pictures/131690bb-36e0-465c-8601-31f6d851abd8.jpg', alt: 'Memory 18' },
+      { type: 'image', src: 'pictures/15399fba-88b8-4cb5-90d7-595708bc51f4.jpg', alt: 'Memory 19' },
+      { type: 'image', src: 'pictures/161b5701-1758-4fbe-b932-59a596428fe5.jpg', alt: 'Memory 20' },
+      { type: 'image', src: 'pictures/165163dc-a484-4f66-a4ce-7c95a82eee5c.jpg', alt: 'Memory 21' },
+      { type: 'image', src: 'pictures/343506c4-0a8a-4944-b25a-6a5bc5f0e80f.jpg', alt: 'Memory 22' },
+      { type: 'image', src: 'pictures/40e04896-c2e1-46c4-9e34-28bbd29821a1.jpg', alt: 'Memory 23' },
+      { type: 'image', src: 'pictures/4d12dda7-b87e-4b65-9f6f-7954ccf05271.jpg', alt: 'Memory 24' },
+      { type: 'image', src: 'pictures/53394d87-59f4-46bc-a466-93624a3851af.jpg', alt: 'Memory 25' },
+      { type: 'image', src: 'pictures/593f5edd-feab-4c4a-a471-4fbb1e16d5c8.jpg', alt: 'Memory 26' },
+      { type: 'image', src: 'pictures/5c003983-3791-4042-bb10-e0abde0c290d.jpg', alt: 'Memory 27' },
+      { type: 'image', src: 'pictures/656fb7e0-9d95-4df8-853d-b53efb127e7c.jpg', alt: 'Memory 28' },
+      { type: 'image', src: 'pictures/69ccc945-d7d2-4851-905b-139cada5741d.jpg', alt: 'Memory 29' },
+      { type: 'image', src: 'pictures/6ae884ac-8867-4237-bb7a-7b4747a5a34d.jpg', alt: 'Memory 30' },
+      { type: 'image', src: 'pictures/6cff3725-5310-44c5-94df-2497118f126e.jpg', alt: 'Memory 31' },
+      { type: 'image', src: 'pictures/726c8a6e-4b94-44c1-8727-964fe50fba38.jpg', alt: 'Memory 32' },
+      { type: 'image', src: 'pictures/7604111a-d7a2-48cf-9912-7f67ac5c287c.jpg', alt: 'Memory 33' },
+      { type: 'image', src: 'pictures/985e30c4-15c7-459d-91f2-8bbfa2bb87d9.jpg', alt: 'Memory 34' },
+      { type: 'image', src: 'pictures/adb8a72d-1c48-4cf3-9ec1-65f6c2e0e497.jpg', alt: 'Memory 35' },
+      { type: 'image', src: 'pictures/afa86ffb-ca09-4e65-aae8-7fa795241bb7.jpg', alt: 'Memory 36' },
+      { type: 'image', src: 'pictures/bbc41712-4aad-4033-b8c3-8ce0363a24dc.jpg', alt: 'Memory 37' },
+      { type: 'image', src: 'pictures/bcb009df-f000-4529-89d9-c4baeae5b9b0.jpg', alt: 'Memory 38' },
+      { type: 'image', src: 'pictures/c0a7b3aa-3899-4415-bbe4-99efeb1a74bf.jpg', alt: 'Memory 39' },
+      { type: 'image', src: 'pictures/c43560ba-d69b-440d-8048-02f60574767b.jpg', alt: 'Memory 40' },
+      { type: 'image', src: 'pictures/c58a25d5-24d0-4d18-ac5f-bde6d5d7f96d.jpg', alt: 'Memory 41' },
+      { type: 'image', src: 'pictures/c9adbeb7-4b72-40e4-aa3f-84e03a07833e.jpg', alt: 'Memory 42' },
+      { type: 'image', src: 'pictures/d0743517-df56-402b-8adb-3829e6ec96c1.jpg', alt: 'Memory 43' },
+      { type: 'image', src: 'pictures/d2f68996-680d-4a48-8570-6683a03e354c.jpg', alt: 'Memory 44' },
+      { type: 'image', src: 'pictures/dad15983-fb98-40a1-8a02-15c8eedb453c.jpg', alt: 'Memory 45' },
+      { type: 'image', src: 'pictures/e1eb95da-f51f-4184-b063-1eb9745ebfe8.jpg', alt: 'Memory 46' },
+      { type: 'image', src: 'pictures/ecd9bad7-f60c-4f50-837e-b702bacebfc6.jpg', alt: 'Memory 47' },
+      { type: 'video', src: 'pictures/100.mp4', alt: 'Video memory 1' },
+      { type: 'video', src: 'pictures/101.mp4', alt: 'Video memory 2' },
+      { type: 'video', src: 'pictures/80dab4c3-86c7-4dc8-bb69-0947d920ed6c.mp4', alt: 'Video memory 3' },
+      { type: 'video', src: 'pictures/811f18c0-07a0-4edc-b077-8352730ca54e.mp4', alt: 'Video memory 4' }
+      
+    ];
+
+    function buildGallery() {
+      const galleryGrid = document.querySelector('.gallery-grid');
+      galleryGrid.innerHTML = '';
+
+      galleryData.forEach((item, index) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.setAttribute('data-type', item.type);
+        galleryItem.setAttribute('data-src', item.src);
+        galleryItem.setAttribute('tabindex', '0');
+        galleryItem.setAttribute('role', 'button');
+        galleryItem.setAttribute('aria-label', `Open ${item.alt}`);
+
+        if (item.type === 'video') {
+          const video = document.createElement('video');
+          video.preload = 'metadata';
+          video.muted = true;
+          video.loop = true;
+          const source = document.createElement('source');
+          source.src = item.src;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+          galleryItem.appendChild(video);
+        } else {
+          const image = document.createElement('img');
+          image.src = item.src;
+          image.alt = item.alt;
+          galleryItem.appendChild(image);
+        }
+
+        galleryGrid.appendChild(galleryItem);
+      });
+    }
+
+    buildGallery();
+
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      item.addEventListener('click', () => openGalleryModal(item));
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openGalleryModal(item);
+        }
+      });
+    });
+
+    galleryCloseBtn.addEventListener('click', closeGalleryModal);
+    galleryModal.addEventListener('click', (event) => {
+      if (event.target === galleryModal) {
+        closeGalleryModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeGalleryModal();
+      }
+    });
+  </script>
+
+    <!-- FOOTER -->
+
+
+  
 </body>
 
 </html>
-```
+

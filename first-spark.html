@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 1</title>
+  <title>Chapter 1 — The First Encounter</title>
   <style>
     * {
       box-sizing: border-box;
@@ -61,8 +61,6 @@
       padding: 60px 24px;
     }
 
-    
-
     .chapter-card {
       width: min(820px, 100%);
       background:
@@ -110,18 +108,7 @@
       text-align: left;
       color: white;
       font-style: italic;
-      text-decoration: underline; 
-    }
-
-    .chapter-text {
-      position: relative;
-      z-index: 2;
-      font-size: 1.15rem;
-      line-height: 1.95;
-      color: #f8f0ff;
-      text-shadow: 0 1px 8px rgba(4, 2, 18, 0.24);
-      letter-spacing: 0.02em;
-      margin-bottom: 30px;
+      text-decoration: underline;
     }
 
     .chapter-button-home {
@@ -160,11 +147,7 @@
       box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
     }
 
-        
-
-
     .chapter-button-next {
-      text-align: right;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -200,12 +183,6 @@
       box-shadow: 0 0 12px rgba(255, 241, 192, 0.5);
     }
 
-/*
-===============
-button position
-=================
-*/
-
     .chapter-buttons {
       position: fixed;
       display: flex;
@@ -218,47 +195,380 @@ button position
       white-space: nowrap;
     }
 
-  
     .chapter-buttons.pos-bottom-right { right: 20px; bottom: 20px; }
     .chapter-buttons.pos-bottom-left  { left: 20px;  bottom: 20px; }
     .chapter-buttons.pos-top-right    { right: 20px; top: 20px; }
     .chapter-buttons.pos-top-left     { left: 20px;  top: 20px; }
-    .chapter-buttons.pos-center      { left: 50%; transform: translateX(-50%); bottom: 20px; }
+    .chapter-buttons.pos-center       { left: 50%; transform: translateX(-50%); bottom: 20px; }
 
+    .chapter-subtitle {
+      text-align: center;
+      opacity: .8;
+      margin-bottom: 30px;
+    }
 
+    .letter {
+      font-size: 1.15rem;
+      line-height: 2;
+    }
+
+    .letter p {
+      margin: 22px 0;
+    }
+
+    .memory-divider {
+      text-align: center;
+      font-size: 28px;
+      opacity: .5;
+      margin: 45px 0;
+    }
+
+    .memory-image {
+      width: 100%;
+      border-radius: 18px;
+      margin: 25px 0;
+      border: 1px solid rgba(255, 255, 255, .15);
+    }
+
+    blockquote {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.25rem;
+      margin: 30px auto;
+      color: #ffe9b0;
+    }
+
+    .ending {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 2rem;
+      color: #fff4c5;
+    }
+
+    /* ── Memory Log ── */
+    .memory-log {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 50px;
+      backdrop-filter: blur(10px);
+    }
+
+    .memory-title {
+      text-align: center;
+      letter-spacing: 4px;
+      font-size: .85rem;
+      color: #ffe7a6;
+      margin-bottom: 25px;
+    }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .memory-grid span {
+      display: block;
+      font-size: .8rem;
+      text-transform: uppercase;
+      opacity: .6;
+      margin-bottom: 8px;
+    }
+
+    .memory-grid p {
+      line-height: 1.7;
+    }
+
+    .memory-ending {
+      margin-top: 35px;
+      text-align: center;
+      font-style: italic;
+      color: #ffe7a6;
+    }
+
+    /* ── Lost Memory block ── */
+    .lost-memory {
+      text-align: center;
+      padding: 30px;
+      border-radius: 18px;
+      margin: 30px 0;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+    }
+
+    .lost-memory h3 {
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .camera {
+      width: 60px;
+      height: 40px;
+      margin: 0 auto 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .camera::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* ── Autosave ── */
+    .autosave {
+      margin-top: 60px;
+      padding: 28px 30px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      font-size: .9rem;
+      line-height: 1.6;
+      color: #f0e8ff;
+    }
+
+    .autosave hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      margin: 16px 0;
+    }
+
+    .autosave-title {
+      text-align: center;
+      letter-spacing: 4px;
+      font-size: .85rem;
+      color: #ffe7a6;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 
 <body>
-  <h1 class="chapter-title" >
-       The First Encounter
-    </h1>
+
+  <h1 class="chapter-title">The First Encounter</h1>
+
   <main class="chapter-page">
     <section class="chapter-card">
-      <h2 class="chapter-headline">
-        Purp
-      </h2>
-      <p class="chapter-text">
-        I want to start this with I love you, and I am very blessed that I met you.
-         I want to tell you that I love you and I will always love you. 
-         You are my soulmate, my best friend, and my everything. 
-         I am so grateful for every moment we have shared together, 
-         and I look forward to many more years of love and happiness with you.
+
+      <!-- MEMORY LOG -->
+      <div class="memory-log">
+        <div class="memory-title">MEMORY LOG #001</div>
+        <div class="memory-grid">
+
+          <div>
+            <span>Date</span>
+            <p>April 2025</p>
+          </div>
+
+          <div>
+            <span>App</span>
+            <p>Purp</p>
+          </div>
+
+          <div>
+            <span>Mission</span>
+
+            <p>
+              ✓ Practice English<br>
+              ✓ Find Minecraft friends<br>
+              ✗ Definitely NOT find a girlfriend
+            </p>
+
+          </div>
+
+          <div>
+            <span>Status</span>
+            <p>Complete strangers.</p>
+          </div>
+
+        </div>
+        <p class="memory-ending">
+          I downloaded an app because I was bored.
+          <br>
+          Funny how boredom introduced me to the love of my life.
+        </p>
+
+      </div>
+
+    
+
+         <!-- HEADLINE -->
+      <h2 class="chapter-headline">PURP</h2>
+
+      <p class="chapter-subtitle">
+        <em>Little did we know...</em>
       </p>
 
-    </section>
-    <div class="chapter-buttons pos-bottom-left">
-    <a href="index.html" class="chapter-button-home">
-        Back
-    </a>
-</div>
+        <img
+        src="pictures/purp-logo.png"
+        alt="Purp"
+        class="memory-image">
 
-<div class="chapter-buttons pos-bottom-right">
-    <a href="your-weirdo.html" class="chapter-button-next">
-        Chapter 2
-    </a>
-</div>
+      <!-- LETTER -->
+      <div class="letter">
+
+        <p>
+          Hi sweetie,
+        </p>
+
+        <p>
+          Do you remember how we first met?
+        </p>
+
+        <p>
+          I don't actually remember the exact date anymore. 😭
+          I just know it was sometime around April.
+          Back then, I downloaded Purp because I wanted to practice my English
+          and hopefully find someone to play Minecraft with.
+          That's literally it.
+          I wasn't looking for love or anything.
+        </p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>
+          Now here's the funny part.
+        </p>
+
+        <p>
+          I actually had a rule whenever I was swiping.
+          If a profile looked weird, automatic swipe left.
+          Especially those profiles where all you see are thirst traps.
+          Like bro... no thanks. HAHAHAHA.
+        </p>
+
+        <p>Then I saw your profile.</p>
+
+        <div class="lost-memory">
+          <div class="camera"></div>
+          <h3>This memory no longer exists.</h3>
+          <p>I wanted to put a screenshot of your Purp profile here.</p>
+          <p>
+            Unfortunately, my old phone broke a few months ago,
+            and with it went almost all of our earliest screenshots.
+          </p>
+          <blockquote>"Oh... she seems normal."</blockquote>
+          <p>Looking back now... that one thought completely changed my life.</p>
+        </div>
+
+        <p>That was literally my reason for swiping right.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>
+          A few days later, I randomly opened Purp again.
+          Then I saw that we'd matched.
+          And you were actually the one who messaged me first.
+        </p>
+
+        <div class="lost-memory">
+          <div class="camera"></div>
+          <h3>Our first conversation.</h3>
+          <p>I wish I still had our first messages.</p>
+          <p>They're gone now... but thankfully the memories aren't.</p>
+        </div>
+
+        <p>
+          Of course I replied.
+          We talked about random things,
+          and somehow ended up talking about tattoos.
+        </p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>
+          Funny enough,
+          I didn't know until much later
+          that you thought I was a jerk.
+        </p>
+
+        <blockquote>"I'm scared of pretty girls, and I hate myself."</blockquote>
+
+        <p>
+          Looking back...
+          Yeah.
+          I would've thought I was weird too.
+        </p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>
+          Then Purp decided to become Purp.
+          It glitched so much that I asked
+          if you had Instagram instead.
+        </p>
+
+        <div class="lost-memory">
+          <div class="camera"></div>
+          <h3>The move to Instagram.</h3>
+          <p>Looking back... I'm really glad I asked.</p>
+          <p>Because if I hadn't, maybe our story would've ended there.</p>
+        </div>
+
+        <p>Thankfully, you said yes.</p>
+
+        <p>Then I discovered your first crime.</p>
+
+        <blockquote>"I'm 18."</blockquote>
+
+        <p>Turns out... you were still 17. 😭</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>I still remember you telling me about your tattoo.</p>
+
+        <p>Coming from a strict Christian Filipino family, I was literally thinking...</p>
+
+        <blockquote>"Wait... are all Europeans like this?"</blockquote>
+
+        <p>HAHAHAHA.</p>
+
+        <div class="memory-divider">✦</div>
+
+        <p>It's honestly crazy when I think about it now.</p>
+
+        <p>I downloaded Purp to practice English... and maybe find someone to play Minecraft.</p>
+
+        <p>Instead...</p>
+
+        <h3 class="ending">I found you. ❤️</h3>
+
+      </div>
+
+      <!-- AUTOSAVE -->
+      <div class="autosave">
+        <p class="autosave-title">AUTOSAVE COMPLETE</p>
+        <hr>
+        <p><strong>Chapter</strong><br>The First Encounter</p>
+        <br>
+        <p><strong>Achievement Unlocked</strong><br>Found the right person... without even looking.</p>
+        <br>
+        <p><strong>Progress</strong><br>1 / 5</p>
+        <br>
+        <p><strong>Next Chapter</strong><br>The First Lie</p>
+      </div>
+
+    </section>
   </main>
+
+  <div class="chapter-buttons pos-bottom-left">
+    <a href="index.html" class="chapter-button-home">Back</a>
+  </div>
+
+  <div class="chapter-buttons pos-bottom-right">
+    <a href="your-weirdo.html" class="chapter-button-next">Chapter 2</a>
+  </div>
 
 </body>
 </html>
